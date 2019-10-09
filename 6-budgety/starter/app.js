@@ -12,7 +12,7 @@
 
 
 // BUDGET CONTROLLER
-var budgetCOntroller = (function () {
+var budgetController = (function () {
 
     // some code
 
@@ -84,6 +84,6 @@ var controller = (function (budgetCtrl, UICtrl) {
     }
 
 
-})(budgetCOntroller, UIController);
+})(budgetController, UIController);
 
 controller.init();
