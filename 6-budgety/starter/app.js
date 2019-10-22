@@ -191,6 +191,12 @@ var UIController = (function () {
         return (type === 'exp' ? '-' : '+') + ' ' + integer + '.' + decimal;
     };
 
+    var nodeListForEach = function (list, callback) {
+        for (var i = 0; i < list.length; i++) {
+            callback(list[i], i);
+        }
+    };
+
     return {
         getInput: function () {
             return {
@@ -276,12 +282,6 @@ var UIController = (function () {
         displayPercentages: function (percentages) {
             var fields = document.querySelectorAll(DOMstrings.expensesPercLabel);
 
-            var nodeListForEach = function (list, callback) {
-                for (var i = 0; i < list.length; i++) {
-                    callback(list[i], i);
-                }
-            };
-
             nodeListForEach(fields, function (current, index) {
                 if (percentages[index] > 0) {
                     current.textContent = percentages[index] + '%';
@@ -302,6 +302,20 @@ var UIController = (function () {
             document.querySelector(DOMstrings.dateLabel).textContent = months[month] + ', ' + year;
         },
 
+        changedType: function(){
+          var fields = document.querySelectorAll(
+              DOMstrings.inputType + ',' +
+              DOMstrings.inputDescription + ',' +
+              DOMstrings.inputValue
+          );
+
+            nodeListForEach(fields, function (current, index) {
+                current.classList.toggle('red-focus');
+            });
+
+            document.querySelector(DOMstrings.inputBtn).classList.toggle('red');
+        },
+
         getDOMstrings: function () {
             return DOMstrings;
         }
@@ -316,15 +330,14 @@ var controller = (function (budgetCtrl, UICtrl) {
 
         var DOM = UICtrl.getDOMstrings();
 
+        document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType);
+        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
         document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
-
         document.addEventListener('keypress', function (event) {
             if (event.keyCode === 12 || event.which === 13) {
                 ctrlAddItem();
             }
         });
-
-        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
 
     };
 
