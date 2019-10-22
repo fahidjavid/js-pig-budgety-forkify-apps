@@ -124,7 +124,7 @@ var budgetController = (function () {
             });
         },
 
-        getPercentages: function(){
+        getPercentages: function () {
             var allPercentages = data.allItems.exp.map(function (current) {
                 return current.getPercentage();
             });
@@ -165,7 +165,7 @@ var UIController = (function () {
         expensesPercLabel: '.item__percentage'
     };
 
-    var formatNumber = function(number, type){
+    var formatNumber = function (number, type) {
         var numSplit, integer, decimal;
         /*
          + or - before number
@@ -177,14 +177,14 @@ var UIController = (function () {
          */
 
         number = Math.abs(number);
-        number = number.toFixed(2 );
+        number = number.toFixed(2);
         numSplit = number.split('.');
 
         integer = numSplit[0];
         decimal = numSplit[1];
 
-        if( integer.length > 3 ) {
-            integer = integer.substr(0, integer.length-3) + ',' + integer.substr(integer.length - 3, 3); // input 23510, output 23,510
+        if (integer.length > 3) {
+            integer = integer.substr(0, integer.length - 3) + ',' + integer.substr(integer.length - 3, 3); // input 23510, output 23,510
         }
 
         return (type === 'exp' ? '-' : '+') + ' ' + integer + '.' + decimal;
@@ -272,17 +272,17 @@ var UIController = (function () {
             }
         },
 
-        displayPercentages: function(percentages){
+        displayPercentages: function (percentages) {
             var fields = document.querySelectorAll(DOMstrings.expensesPercLabel);
 
             var nodeListForEach = function (list, callback) {
-                for(var i = 0; i < list.length; i++ ){
+                for (var i = 0; i < list.length; i++) {
                     callback(list[i], i);
                 }
             };
 
             nodeListForEach(fields, function (current, index) {
-                if(percentages[index] > 0){
+                if (percentages[index] > 0) {
                     current.textContent = percentages[index] + '%';
                 } else {
                     current.textContent = '---';
