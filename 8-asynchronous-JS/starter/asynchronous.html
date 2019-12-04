@@ -7,9 +7,34 @@
     <title>Asynchronous JavaScript</title>
 </head>
 <body>
-    <h1>Asynchronous JavaScript</h1>
-    <script>
-        
-    </script>
+<h1>Asynchronous JavaScript</h1>
+<script>
+
+    // const second = () => {
+    //     setTimeout(()=>{
+    //         console.log('Second');
+    //     }, 2000);
+    //
+    // };
+    //
+    // const first = () => {
+    //     console.log('Hey there');
+    //     second();
+    //     console.log('The End!');
+    // };
+    // first();
+
+    function getRecipe() {
+        setTimeout(() => {
+            const recipeID = [523,883, 432, 974];
+            console.log(recipeID);
+
+            setTimeout(()=>{}, 1000);
+
+        }, 1500);
+    }
+
+    getRecipe();
+</script>
 </body>
 </html>
