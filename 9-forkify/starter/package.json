@@ -1,7 +1,7 @@
 {
   "name": "frokify",
   "version": "1.0.0",
-  "description": "This is a great application about recipies built with pure JS.",
+  "description": "This is a great application about recipes built with pure JS.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
