@@ -252,7 +252,8 @@ body {
     height: 5.5rem;
     margin-right: 2rem;
     position: relative;
-    backface-visibility: hidden; }
+    /* backface-visibility: hidden; */
+   }
     .results__fig::before,
     .likes__fig::before {
       content: '';
