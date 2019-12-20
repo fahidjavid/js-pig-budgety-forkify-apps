@@ -38,8 +38,13 @@ elements.searchForm.addEventListener('submit', e => {
     controlSearch();
 });
 
-const result = new Search('cheese&number=2');
-result.getResults();
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
 
-// API URL: https://api.spoonacular.com/recipes/search?query=cheese&number=2
-// apiKey: c25b91d186fe47a5abd96993b2789c07
+    if(btn){
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.clearResList();
+        searchView.renderResults(state.search.result, goToPage);
+        console.log(goToPage);
+    }
+});
