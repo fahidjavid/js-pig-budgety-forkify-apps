@@ -1,3 +1,8 @@
 *.xml
 /.idea/workspace.xml
 node_modules
+.DS_Store
+/9-forkify/starter/src/.DS_Store
+/9-forkify/starter/.DS_Store
+/9-forkify/.DS_Store
+/.DS_Store
