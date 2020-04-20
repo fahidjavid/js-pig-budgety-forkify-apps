@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {key} from '../config';
 
-export default class Recipe{
+export default class Recipe {
     constructor(id) {
         this.id = id;
     }
@@ -25,7 +25,7 @@ export default class Recipe{
 	// Unused Function!
 	calcTime() {
 		// Assuming that we need 15 min for each 3 ingredients
-		const numIn = this.ingredients.lenght;
+		const numIng = this.ingredients.lenght;
 		const periods = Math.ceil(numIng / 3);
 		this.time = periods * 15;
 	}
@@ -49,7 +49,7 @@ export default class Recipe{
 			});
 
 			// 2) Remove parentheses
-			ingredient = ingredient..replace(/[()]/g,' ');
+			ingredient = ingredient.replace(/[()]/g,' ');
 
 			// 3) Parse ingredients into count, unit and ingredient
 
