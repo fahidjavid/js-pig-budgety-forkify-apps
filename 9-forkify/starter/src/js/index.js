@@ -65,14 +65,14 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
 	// Get ID from url
 	const id = window.location.hash.replace('#', '');
-	console.log(id);
+	console.log('Id is ' + id);
 
 	if (id) {
 		// Prepare UI for changes
 
 		// Create new recipe object
 		state.recipe = new Recipe(id);
-
+		console.log( 'Working on your request!' );
 		try {
 			// Get recipe data
 			await state.recipe.getRecipe();
