@@ -35,7 +35,7 @@ export default class Recipe {
 		this.servings = 4
 	}
 	
-	// Unsued Function
+	// Unsued Function - TODO: copy the complete function for the final files.
 	parseIngredients() {
 		const newIngredients = this.ingredients.map(el => {
 			
