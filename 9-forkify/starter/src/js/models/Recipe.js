@@ -20,7 +20,6 @@ export default class Recipe{
             console.log(error);
             alert('Something went wrong :(');
         }
-    }
 	}
 
 	// Unused Function!
@@ -31,4 +30,31 @@ export default class Recipe{
 		this.time = periods * 15;
 	}
 
+	// Unused Function!
+	calcServings() {
+		this.servings = 4
+	}
+	
+	// Unsued Function
+	parseIngredients() {
+		const newIngredients = this.ingredients.map(el => {
+			
+			const unitsLong = ['tablespoon', 'tablespoons', 'ounces', 'ounce', 'teaspoons', 'teaspoon', 'cups', 'pounds'];
+			const unitsShort = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound'];
+			
+			// 1) Uniform units
+			let ingredient = el.toLowerCase();
+			unitsLong.forEach((unit, i) => {
+				ingredient = ingredient.replace(unit, unitsShort[i]);
+			});
+
+			// 2) Remove parentheses
+			ingredient = ingredient..replace(/[()]/g,' ');
+
+			// 3) Parse ingredients into count, unit and ingredient
+
+			return ingredient;
+		});
+		this.ingredients = newIngredients;
+	}
 }
